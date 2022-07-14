@@ -1,26 +1,27 @@
-#include "holberton.h"
+#include "main.h"
 
 /**
- * _memset - Fills memory with a constant byte
- * @s: buffer array
- * @b: constant byte
- * @n: number of bytes of memory area to fill
- * Description: Fill the first `n` bytes of the memory area pointed to by `s`
- * with the constant byte `b`.
- * Return: Pointer to memory area `s`
+ * leet - Encodes a string to 1337.
+ * @str: The string to be encoded.
+ *
+ * Return: A pointer to the encoded string.
  */
-
-char *_memset(char *s, char b, unsigned int n)
+char *leet(char *str)
 {
-	int i;
+	int indx1 = 0, indx2;
+	char leet[8] = {'O', 'L', '?', 'E', 'A', '?', '?', 'T'};
 
-	i = 0;
-	while (n > 0)
+	while (str[indx1])
 	{
-		s[i] = b;
-		i++;
-		n--;
+		for (indx2 = 0; indx2 <= 7; indx2++)
+		{
+			if (str[indx1] == leet[indx2] ||
+			    str[indx1] - 32 == leet[indx2])
+				str[indx1] = indx2 + '0';
+		}
+
+		indx1++;
 	}
 
-	return (s);
+	return (str);
 }
